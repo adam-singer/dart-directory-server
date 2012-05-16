@@ -1,16 +1,13 @@
 #import('dart:html');
 #import('dart:json');
 
-var IP = '127.0.0.1';
-var PORT = 8080;
-
 class DirectoryModel {
   WebSocket _ws;
   get ws() => _ws;
   Function onMessage;
   
   void setupWebsocket() {
-    _ws = new WebSocket("ws://127.0.0.1:8080/ws");
+    _ws = new WebSocket("ws://${window.location.host}/ws");
     _ws.on.open.add((a) {
       print("open $a");
     });
@@ -77,7 +74,7 @@ class DirectoryView {
     //<object data="circle1.svg" type="image/svg+xml"></object>
     var s = new Element.html('<object data="images/file-icon.svg" type="image/svg+xml"></object>');
     var f = new Element.html("<div class='g160'></div>");
-    f.elements.add(s);
+    //f.elements.add(s);
     f.elements.add(new Element.html("<br/>"));
     f.elements.add(b);
     f.elements.add(new Element.html("<br/>"));
@@ -93,7 +90,7 @@ class DirectoryView {
     var b = new Element.html("<Button>${dir}</Button>");
     var s = new Element.html('<object data="images/folder-folder.svg" type="image/svg+xml"></object>');
     var f = new Element.html("<div class='g160'></div>");
-    f.elements.add(s);
+    //f.elements.add(s);
     f.elements.add(new Element.html("<br/>"));
     f.elements.add(b);
     f.elements.add(new Element.html("<br/>"));
@@ -130,6 +127,5 @@ void main() {
   DirectoryView _directoryView = new DirectoryView();
   DirectoryModel _directoryModel = new DirectoryModel();
   DirectoryController _directoryController = new DirectoryController(_directoryModel, _directoryView);
-
 }
 

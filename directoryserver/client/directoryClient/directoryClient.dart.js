@@ -896,7 +896,7 @@ Isolate.$defineClass("DirectoryModel", "Object", ["onMessage=", "_ws"], {
   }
  },
  setupWebsocket$0: function() {
-  this._ws = $.WebSocket('ws://127.0.0.1:8080/ws');
+  this._ws = $.WebSocket('ws://' + $.stringToString($.window().get$location().get$host()) + '/ws');
   $.add$1(this._ws.get$on().get$open(), new $.Closure9());
   $.add$1(this._ws.get$on().get$close(), new $.Closure10());
   $.add$1(this._ws.get$on().get$message(), new $.Closure11(this));
@@ -913,7 +913,7 @@ Isolate.$defineClass("DirectoryView", "Object", ["_dirInput?", "_directoryContro
   t0.dir_1 = dir;
   var b = $.Element$html('<Button>' + $.stringToString(t0.dir_1) + '</Button>');
   var s = $.Element$html('<object data="images/folder-folder.svg" type="image/svg+xml"></object>');
-  var f = $.Element$html('<div class=\'four columns alpha\'></div>');
+  var f = $.Element$html('<div class=\'g160\'></div>');
   $.add$1(f.get$elements(), s);
   $.add$1(f.get$elements(), $.Element$html('<br/>'));
   $.add$1(f.get$elements(), b);
@@ -927,7 +927,7 @@ Isolate.$defineClass("DirectoryView", "Object", ["_dirInput?", "_directoryContro
   t0.file_1 = file;
   var b = $.Element$html('<Button>' + $.stringToString(t0.file_1) + '</Button>');
   var s = $.Element$html('<object data="images/file-icon.svg" type="image/svg+xml"></object>');
-  var f = $.Element$html('<div class=\'four columns alpha\'></div>');
+  var f = $.Element$html('<div class=\'g160\'></div>');
   $.add$1(f.get$elements(), s);
   $.add$1(f.get$elements(), $.Element$html('<br/>'));
   $.add$1(f.get$elements(), b);
@@ -4634,7 +4634,7 @@ $.$defineNativeClass('AbstractWorker', [], {
  }
 });
 
-$.$defineNativeClass('HTMLAnchorElement', [], {
+$.$defineNativeClass('HTMLAnchorElement', ["host?"], {
  toString$0: function() {
   return this.toString();
  },
@@ -4648,7 +4648,7 @@ $.$defineNativeClass('HTMLAppletElement', [], {
  is$Element: function() { return true; }
 });
 
-$.$defineNativeClass('HTMLAreaElement', [], {
+$.$defineNativeClass('HTMLAreaElement', ["host?"], {
  is$Element: function() { return true; }
 });
 
@@ -5228,7 +5228,7 @@ $.$defineNativeClass('HTMLFormElement', ["length?"], {
  is$Element: function() { return true; }
 });
 
-$.$defineNativeClass('HTMLFrameElement', [], {
+$.$defineNativeClass('HTMLFrameElement', ["location?"], {
  is$Element: function() { return true; }
 });
 
@@ -5582,7 +5582,7 @@ $.$defineNativeClass('HTMLLinkElement', [], {
  is$Element: function() { return true; }
 });
 
-$.$defineNativeClass('Location', [], {
+$.$defineNativeClass('Location', ["host?"], {
  toString$0: function() {
   return this.toString();
  }
@@ -6404,7 +6404,7 @@ $.$defineNativeClass('HTMLShadowElement', [], {
  is$Element: function() { return true; }
 });
 
-$.$defineNativeClass('ShadowRoot', ["innerHTML!"], {
+$.$defineNativeClass('ShadowRoot', ["innerHTML!", "host?"], {
  is$Element: function() { return true; }
 });
 
@@ -6841,7 +6841,7 @@ $.$defineNativeClass('WebSocket', [], {
  }
 });
 
-$.$defineNativeClass('DOMWindow', ["navigator?", "length?"], {
+$.$defineNativeClass('DOMWindow', ["navigator?", "location?", "length?"], {
  open$3: function(url, name, options) {
   return this.open(url,name,options);
  },
@@ -6864,7 +6864,7 @@ $.$defineNativeClass('Worker', [], {
  }
 });
 
-$.$defineNativeClass('WorkerContext', ["navigator?"], {
+$.$defineNativeClass('WorkerContext', ["navigator?", "location?"], {
  close$0: function() {
   return this.close();
  },
@@ -6881,7 +6881,7 @@ $.$defineNativeClass('WorkerContext', ["navigator?"], {
  }
 });
 
-$.$defineNativeClass('WorkerLocation', [], {
+$.$defineNativeClass('WorkerLocation', ["host?"], {
  toString$0: function() {
   return this.toString();
  }

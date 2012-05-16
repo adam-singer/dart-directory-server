@@ -1,9 +1,8 @@
 #import('dart:io');
 #import('dart:json');
 
-var IP = '127.0.0.1';
-var PORT = 8080;
-
+final IP = '127.0.0.1';
+final PORT = 8080;
 
 Future<String> listDirectoryJson(path) {
   Completer c = new Completer();
@@ -25,7 +24,6 @@ Future<String> listDirectoryJson(path) {
   dl.onDone = (done) {    
     var f = {"files": files, "dirs": dirs, "cwd": cwd};
     c.complete(JSON.stringify(f));
-    
   };
   
   dl.onError = (e) { 
@@ -48,9 +46,6 @@ void main() {
   staticFiles["/directoryClient.dart.js"] = "../client/directoryClient/directoryClient.dart.js";
   staticFiles["/images/file-icon.svg"] = "../client/directoryClient/images/file-icon.svg";
   staticFiles["/images/folder-folder.svg"] = "../client/directoryClient/images/folder-folder.svg";
-  staticFiles["/stylesheets/base.css"] = "../client/directoryClient/stylesheets/base.css";
-  staticFiles["/stylesheets/layout.css"] = "../client/directoryClient/stylesheets/layout.css";
-  staticFiles["/stylesheets/skeleton.css"] = "../client/directoryClient/stylesheets/skeleton.css";
   staticFiles["/stylesheets/golden-min.css"] = "../client/directoryClient/stylesheets/golden-min.css";
   
   staticFiles.forEach((k,v) {
