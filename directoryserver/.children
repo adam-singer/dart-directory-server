@@ -1,0 +1,3 @@
+client/directoryClient/directoryClient.dart
+test/symlinkbug.dart
+server/directoryserver.dart
